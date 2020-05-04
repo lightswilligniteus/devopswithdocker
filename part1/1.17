@@ -1,0 +1,9 @@
+#dockerfile
+FROM python:2.7
+
+CMD ["python"]
+
+
+#commands
+$ docker build -t python .
+$ docker run -it python

@@ -1,0 +1,22 @@
+#Dockerfile
+FROM ubuntu:16.04
+
+RUN apt-get update && apt-get install -y curl
+CMD echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;
+
+
+
+$ docker run -i curler
+Input website:
+helsinki.fi
+Searching..
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   231  100   231    0     0    175      0  0:00:01  0:00:01 --:--:--   175
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
