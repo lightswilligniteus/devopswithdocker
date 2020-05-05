@@ -1,0 +1,26 @@
+#docker-compose file
+version: '3.5'
+
+services:
+  front-end:
+    build:
+      context: ./frontend
+    ports:
+      - 5000:5000
+    container_name: frontend_exercise
+  back-end:
+    build:
+      context: ./backend
+    ports:
+      - 8000:8000
+    container_name: backend_exercise
+    environment:
+      - REDIS=redis
+      - REDIS_PORT=6379
+  redis:
+    image: redis
+    container_name: redis_exercise 
+   
+   
+#command
+docker-compose up
